@@ -13,7 +13,7 @@ https://bike24-shopping-cart.vercel.app/
 To set up the shopping cart project, follow these steps:
 
 ```sh
-$ cd BreadcrumbsBike24-shopping-cart
+$ cd Bike24-shopping-cart
 $ npm install
 ```
 
