@@ -1,6 +1,7 @@
 import Col from "react-bootstrap/Col";
 import {Slider} from "antd";
 import {productProps} from "../../types/types";
+import "./amount.css";
 
 type Props = {
   amount: number;

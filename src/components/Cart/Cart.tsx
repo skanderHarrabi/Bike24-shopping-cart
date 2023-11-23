@@ -9,6 +9,7 @@ import "./cart.css";
 import {Button} from "antd";
 import {useNotification} from "../../hooks/useNotification";
 import {formatNumberWithTwoDecimals} from "../../utils/formatNumbersWithTwoDecimals";
+import CustomModal from "../Modal";
 
 const Cart = () => {
   const {cartItems, clearCart} = useCart();
@@ -76,6 +77,10 @@ const Cart = () => {
           </Row>
         </Container>
       </Container>
+      <CustomModal
+        show={isModalVisible}
+        onHide={() => setIsModalVisible(false)}
+      />
     </>
   );
 };

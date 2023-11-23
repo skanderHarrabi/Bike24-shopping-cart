@@ -30,7 +30,11 @@ export type NotificationProviderProps = {
 };
 
 export type NotificationContextType = {
-  openNotification: (title: string, description: string) => void;
+  openNotification: (
+    title: string,
+    description: string,
+    isSuccess?: boolean
+  ) => void;
 };
 
 export interface ModalCheckoutProps {
