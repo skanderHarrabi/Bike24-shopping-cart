@@ -22,6 +22,7 @@ const Amount: React.FC<Props> = ({amount, setAmount, selectedProduct}) => {
       <Col>
         <div className="text-center">
           <Slider
+            className="slider"
             min={0}
             disabled={selectedProduct?.id != "" ? false : true}
             max={
