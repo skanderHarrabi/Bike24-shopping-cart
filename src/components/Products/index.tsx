@@ -62,8 +62,16 @@ const Products = () => {
 
           <Col>
             <div className="p-2">
+              <span className="p-2">{amount}</span>
+              <span className="p-2">X</span>
               <span className="p-2">
-                {amount > 1 ? `${amount} Items` : `${amount} Item`}
+                {typeof selected !== "undefined" &&
+                  formatNumberWithTwoDecimals(selected.price)}
+              </span>
+              <span className="p-2">=</span>
+              <span className="p-2">
+                {typeof selected !== "undefined" &&
+                  formatNumberWithTwoDecimals(selected.price * amount)}
               </span>
             </div>
           </Col>
