@@ -32,11 +32,23 @@ export const CartProvider = ({children}: CartProviderProps) => {
     }
   };
 
+  const removeFromCart = (id: string) => {
+    setCartItems((currentItems) => {
+      return currentItems.filter((item) => item.prod.id !== id);
+    });
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <CartContext.Provider
       value={{
         cartItems,
         addToCart,
+        removeFromCart,
+        clearCart,
         MAX_NUM_PRODUCTS,
       }}
     >

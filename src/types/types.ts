@@ -20,5 +20,7 @@ export type CartItem = {
 export type CartContextType = {
   cartItems: CartItem[];
   addToCart: (prod: productProps, amount: number) => void;
+  clearCart: () => void;
+  removeFromCart: (id: string) => void;
   MAX_NUM_PRODUCTS: number;
 };

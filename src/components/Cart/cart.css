@@ -1,6 +1,6 @@
-.products-container {
+.cart-container {
   color: white;
-  margin-top: 3rem;
+  margin-top: 5rem;
   background-color: rgba(255, 255, 255, 0.3);
   box-shadow: 5px 5px 5px #78777740;
   border-radius: 10px;
@@ -9,7 +9,8 @@
 h4 {
   margin-bottom: 2rem;
 }
-.custom-button {
+
+.custom-button-clear {
   color: white;
   background-color: transparent;
   border: 2px solid white;
@@ -18,7 +19,22 @@ h4 {
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
-.custom-button:hover {
+.custom-button-clear:hover {
+  background-color: #007bffc9;
+  border-color: #007bff;
+  color: white !important;
+}
+
+.custom-button-buy {
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.custom-button-buy:hover {
   background-color: #007bffc9;
   border-color: #007bff;
   color: white !important;

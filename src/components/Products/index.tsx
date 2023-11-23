@@ -64,7 +64,11 @@ const Products = () => {
           </Col>
 
           <Col>
-            <Button type="primary" size="large" onClick={handleAddProduct}>
+            <Button
+              size="large"
+              onClick={handleAddProduct}
+              className="custom-button"
+            >
               add to Cart
             </Button>
           </Col>

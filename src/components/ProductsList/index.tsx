@@ -2,6 +2,7 @@ import Col from "react-bootstrap/Col";
 import productsList from "../../data/products.json";
 import {productProps} from "../../types/types";
 import {Select} from "antd";
+import "./productsList.css";
 
 type Props = {
   setAmount: (amount: number) => void;
@@ -31,6 +32,8 @@ const ProductList: React.FC<Props> = ({setAmount, setSelected}) => {
     <>
       <Col>
         <Select
+          className="select-container"
+          size="large"
           defaultValue=""
           style={{width: 170}}
           onChange={handleSelected}
