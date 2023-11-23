@@ -8,9 +8,12 @@ import {useCart} from "../../hooks/useCart";
 import ProductList from "../ProductsList";
 import Amount from "../Amount";
 import "./products.css";
+import {useNotification} from "../../hooks/useNotification";
+import {formatNumberWithTwoDecimals} from "../../utils/formatNumbersWithTwoDecimals";
 
 const Products = () => {
   const {addToCart, MAX_NUM_PRODUCTS, cartItems} = useCart();
+  const {openNotification} = useNotification();
 
   const [amount, setAmount] = useState(0);
   const [selected, setSelected] = useState<productProps | undefined>({
@@ -23,9 +26,17 @@ const Products = () => {
 
   const handleAddProduct = () => {
     if (amount == 0) {
-      console.log("amount 0");
+      openNotification(
+        "The entered quantity is not accurate.",
+        "Please select a quantity greater than 0 for your items."
+      );
     } else if (cartItems.length >= MAX_NUM_PRODUCTS) {
-      console.log("max products");
+      openNotification(
+        "Excessive quantity of products selected.",
+        "The maximum number of unique products allowed is " +
+          MAX_NUM_PRODUCTS +
+          "."
+      );
     } else {
       if (selected !== undefined) {
         addToCart(selected, amount);
@@ -54,11 +65,13 @@ const Products = () => {
               <span className="p-2">{amount}</span>
               <span className="p-2">X</span>
               <span className="p-2">
-                {typeof selected !== "undefined" && selected.price}
+                {typeof selected !== "undefined" &&
+                  formatNumberWithTwoDecimals(selected.price)}
               </span>
               <span className="p-2">=</span>
               <span className="p-2">
-                {typeof selected !== "undefined" && selected.price * amount}
+                {typeof selected !== "undefined" &&
+                  formatNumberWithTwoDecimals(selected.price * amount)}
               </span>
             </div>
           </Col>

@@ -4,6 +4,7 @@ import {useCart} from "../../hooks/useCart";
 import {Empty, Space, Table} from "antd";
 import type {ColumnsType} from "antd/es/table";
 import {CartItem} from "../../types/types";
+import {formatNumberWithTwoDecimals} from "../../utils/formatNumbersWithTwoDecimals";
 
 const CartTable = () => {
   const {cartItems, removeFromCart} = useCart();
@@ -27,7 +28,11 @@ const CartTable = () => {
       title: "Unit Price",
       dataIndex: "price",
       key: "price",
-      render: (_, record) => <Space size="middle">{record.prod.price}</Space>,
+      render: (_, record) => (
+        <Space size="middle">
+          {formatNumberWithTwoDecimals(record.prod.price)}
+        </Space>
+      ),
     },
     {
       title: "Tax",
@@ -42,7 +47,9 @@ const CartTable = () => {
       dataIndex: "priceNoTax",
       key: "priceNoTax",
       render: (_, record) => (
-        <Space size="middle">{record.prod.price * record.amount}</Space>
+        <Space size="middle">
+          {formatNumberWithTwoDecimals(record.prod.price * record.amount)}
+        </Space>
       ),
     },
     {
@@ -51,8 +58,10 @@ const CartTable = () => {
       key: "priceInclTax",
       render: (_, record) => (
         <Space size="middle">
-          {((record.prod.price * (100 + record.prod.taxRate)) / 100) *
-            record.amount}
+          {formatNumberWithTwoDecimals(
+            ((record.prod.price * (100 + record.prod.taxRate)) / 100) *
+              record.amount
+          )}
         </Space>
       ),
     },

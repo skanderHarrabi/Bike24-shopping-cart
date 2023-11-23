@@ -9,7 +9,6 @@ type Props = {
 };
 
 const Amount: React.FC<Props> = ({amount, setAmount, selectedProduct}) => {
-  console.log(selectedProduct);
   const handleAmount = (amount: number) => {
     if (isNaN(amount)) {
       return;

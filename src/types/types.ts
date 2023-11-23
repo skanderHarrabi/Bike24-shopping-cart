@@ -24,3 +24,16 @@ export type CartContextType = {
   removeFromCart: (id: string) => void;
   MAX_NUM_PRODUCTS: number;
 };
+
+export type NotificationProviderProps = {
+  children: ReactNode;
+};
+
+export type NotificationContextType = {
+  openNotification: (title: string, description: string) => void;
+};
+
+export interface ModalCheckoutProps {
+  show: boolean;
+  onHide: () => void;
+}

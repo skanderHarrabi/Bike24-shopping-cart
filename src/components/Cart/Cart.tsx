@@ -7,13 +7,19 @@ import CartTable from "../Table";
 import CustomProgress from "../Progress";
 import "./cart.css";
 import {Button} from "antd";
+import {useNotification} from "../../hooks/useNotification";
+import {formatNumberWithTwoDecimals} from "../../utils/formatNumbersWithTwoDecimals";
 
 const Cart = () => {
   const {cartItems, clearCart} = useCart();
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const {openNotification} = useNotification();
   const handleBuyButton = () => {
     if (cartItems.length <= 0) {
-      console.log("empty cart");
+      openNotification(
+        "Your shopping cart is currently empty.",
+        "Please consider adding products to your cart."
+      );
     } else {
       setIsModalVisible(true);
     }
@@ -30,14 +36,16 @@ const Cart = () => {
           <Row className="d-flex ml-auto">
             <h4>
               Total:{" "}
-              {cartItems.reduce((total, cartItem) => {
-                return (
-                  total +
-                  cartItem.prod.price *
-                    ((100 + cartItem.prod.taxRate) / 100) *
-                    cartItem.amount
-                );
-              }, 0)}
+              {formatNumberWithTwoDecimals(
+                cartItems.reduce((total, cartItem) => {
+                  return (
+                    total +
+                    cartItem.prod.price *
+                      ((100 + cartItem.prod.taxRate) / 100) *
+                      cartItem.amount
+                  );
+                }, 0)
+              )}
             </h4>
           </Row>
         </Container>

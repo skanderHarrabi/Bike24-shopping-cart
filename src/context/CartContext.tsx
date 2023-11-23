@@ -14,7 +14,7 @@ export const CartProvider = ({children}: CartProviderProps) => {
 
   const addToCart = (prod: productProps, amount: number) => {
     if (cartItems.length >= MAX_NUM_PRODUCTS) {
-      console.log("The product limit has been reached.");
+      console.log("products limit reached.");
     } else {
       setCartItems((currentItems) => {
         if (currentItems.find((item) => item.prod.id === prod.id) == null) {
